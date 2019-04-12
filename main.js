@@ -1,9 +1,9 @@
-let speed = 30
-let n = 0
-let pre = document.getElementById('pre')
-let css = document.getElementById('painting-css')
-let code= document.getElementById('code')
-let cssCode = `/*今天来画个蝙蝠侠logo*/
+!function() {
+    let speed= 30
+    let pre = document.getElementById('pre')
+    let css = document.getElementById('painting-css')
+    let code = document.getElementById('code')
+    let cssCode = `/*今天来画个蝙蝠侠logo吧！*/
 
 #batman {
     position:absolute;
@@ -150,29 +150,26 @@ let cssCode = `/*今天来画个蝙蝠侠logo*/
 }
 /*画完了，帅的一逼！！！*/
     `
+    let n = 0
+    let timer = setTimeout(function fn() {
+        n += 1
+        pre.innerHTML = cssCode.substring(0, n)
+        css.innerText = cssCode.substring(0, n)
+        code.scrollTop = code.scrollHeight
+        if (n < cssCode.length) {
+            setTimeout(fn, speed)
+        } else {
+            clearTimeout(timer)
+        }
+    }, speed)
 
-let timer = setTimeout(function fn() {
-    console.log(cssCode.length)
-    n+=1
-    pre.innerHTML = cssCode.substring(0, n)
-    css.innerText = cssCode.substring(0, n)
-    code.scrollTop = code.scrollHeight
-    if (n < cssCode.length) {
-        setTimeout(fn, speed)
-    } else {
-        clearTimeout(timer)
+    slow.onclick = function () {
+        speed = 50
     }
-}, speed)
-
-slow.onclick=function () {
-    speed=50
-    console.log(speed)
-}
-normal.onclick=function () {
-    speed=30
-    console.log(speed)
-}
-fast.onclick=function () {
-    speed=10
-    console.log(speed)
-}
+    normal.onclick = function () {
+        speed = 30
+    }
+    fast.onclick = function () {
+        speed = 10
+    }
+}.call()
