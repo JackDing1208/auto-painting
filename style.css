@@ -11,26 +11,28 @@ body{
     width: 50%;
     overflow: hidden;
     background: bisque;
-}
-
-.canvas{
-    height: 100%;
-    width: 50%;
-    background-color:#98a4a6;
+    flex:1;
 }
 
 
 .action{
-    display: flex;
     flex-direction: column;
     position: absolute;
     right: 50%;
     top: 0%;
+    display: none;
 }
 
-.action button{
-    font-size: 20px;
-    width: 50px;
-    height: 30px;
+.action div{
+    text-align: center;
+    font-size: 18px;
+    padding: 0.5em 1em;
     margin: 8px;
+    border: 1px solid #666666 ;
+    background: white;
+    border-radius: 5px;
+}
+
+.action div:hover{
+    cursor: pointer;
 }

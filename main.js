@@ -1,19 +1,33 @@
-!function() {
-    let speed= 30
+!function () {
+    let speed = 40
     let pre = document.getElementById('pre')
     let css = document.getElementById('painting-css')
     let code = document.getElementById('code')
-    let cssCode = `/*今天来画个蝙蝠侠logo吧！*/
+    let cssCode = `/*我们来用原生JS来画个蝙蝠侠logo吧！*/
+    
+/* 首先来张画布*/
+    
+.canvas{
+    width: 50%;
+    background-color:#98a4a6;
+    height: 100%;
+}
 
 #batman {
-    position:absolute;
-    left:75%;
-    top:50%;
-    margin:-100px 0px 0px -175px;
     width:350px;
     height:200px;
     background-color:#111;
     border-radius: 175px / 100px;
+    position:absolute;
+    left:75%;
+    top:50%;
+    margin-top:-100px; 
+    margin-left:-175px;
+}
+
+/* 觉得慢的话来两个按钮调播放速度吧*/
+.action{
+    display: flex;
 }
 
 .inner-y {
@@ -164,12 +178,13 @@
     }, speed)
 
     slow.onclick = function () {
-        speed = 50
+        speed += 10
+
     }
-    normal.onclick = function () {
-        speed = 30
-    }
+
     fast.onclick = function () {
-        speed = 10
+        speed -= 10
+        if(speed<10){speed=10}
+        console.log(speed)
     }
 }.call()
